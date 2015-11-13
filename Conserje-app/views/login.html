@@ -1,0 +1,10 @@
+<div class="login">
+        <div class="contenedor">
+            <h1>Bienvenido</h1>
+            <form  name="loginForm" role="form" class="form" method="post" autocomplete="on">
+                <input type="text"  placeholder="Usuario/Telefono" ng-model="login.email" required focus>
+                <input type="password"  placeholder="Password" ng-model="login.password" required>
+                <button type="submit" id="acceder"  ng-click="doLogin(login)" data-ng-disabled="loginForm.$invalid" >Login</button>
+            </form>
+        </div>
+    </div>

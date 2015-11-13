@@ -1,0 +1,106 @@
+* {
+  box-sizing: border-box;
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+}
+
+  body {
+    color: #fff;
+    font-family:sans-serif;
+    font-weight: 300;
+    background-color: black;
+  }
+
+  body ::-webkit-input-placeholder, body ::-moz-placeholder {
+    color: #fff;
+    font-family:sans-serif;
+    font-weight: 300;
+  }
+
+  .login {
+    background: #3e9fb1;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    width: 100%; 
+  }
+
+  .login.form-success .contenedor h1 {
+    -webkit-transform: translateY(20vh);
+    -ms-transform: translateY(20vh);
+    transform: translateY(20vh);
+  }
+
+  .login .contenedor {
+    height: 100vh;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20% 0;
+    text-align: center;
+  }
+
+  .login .contenedor h1 {
+    font-size: 40px;
+    font-weight: 200;
+    -webkit-transition-duration: 1s;
+    transition-duration: 1s;
+    -webkit-transition-timing-function: ease-in-put;
+    transition-timing-function: ease-in-put;
+  }
+
+  .login form {
+    padding: 5% 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  .login form input {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 3px;
+    color: #fff;
+    display: block;
+    font-size: 18px;
+    font-weight: 200;
+    margin: 0 auto 3% auto;
+    outline: none;
+    padding: 3% 4%;
+    -webkit-transition-duration: 0.30s;
+    transition-duration: 0.30s;
+    text-align: center;
+    width: 75%; 
+  }
+
+  .login form input:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+
+  .login form input:focus {
+    background-color: white;
+    color: #3e9fb1;
+    width: 85%;
+  }
+
+  .login form button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    border: 0;
+    border-radius: 3px;
+    color: #3e9fb1;
+    cursor: pointer;
+    font-size: 18px;
+    outline: 0;
+    padding: 3% 4%;
+    -webkit-transition-duration: 0.25s;
+    transition-duration: 0.25s;
+    width: 75%;
+  }
+
+  .login form button:hover {
+    background-color: #f5f7f9;
+  }
+
+
