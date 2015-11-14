@@ -12,7 +12,28 @@
 	        <ul>
 	            <li><a href="/Concurso2/Conserje-app/#/reservation">Reservar</a></li>
 	            <li><a href="/">Perfil</a></li>
-	            <li><a href="" ng-click="logout();">Salir</a></li>
+	            <li><a ng-click="logout();">Salir</a></li>
 	        </ul>
 	    </nav>
 </header>
+<div id="active-resevation" class="reservation">
+	<ul >
+		<div>
+			<h3>{{activeReservation.name}}</h3>
+			<div>
+				<div>
+					<h4>Hora:</h4> <p>{{activeReservation.timeI}} - {{activeReservation.timeF}}</p>
+				</div>
+
+				<div>
+					<h4>Fecha:</h4> <p>{{activeReservation.day}}</p>
+				</div>
+
+				<div>
+					<h4>Lugar:</h4> <p>{{activeReservation.place}}</p>
+				</div>
+			</div>
+			<button type="reset">Cancelar</button>
+		</div>
+	</ul>
+</div>

@@ -1,7 +1,7 @@
+//Controlador para los usuarios 
 app.controller('authCtrl', function ($scope, $rootScope, $routeParams, $location, $http, Data) {
-    //initially set those objects to null to avoid undefined error
     $scope.login = {};
-    $scope.signup = {};
+    //Funcion que valida al usuario
     $scope.doLogin = function (customer) {
         Data.post('login', {
             customer: customer
@@ -10,8 +10,12 @@ app.controller('authCtrl', function ($scope, $rootScope, $routeParams, $location
             if (results.status == "success") {
                 $location.path('home');
             }
+            else{
+                alert("Datos incorrectos");
+            }
         });
     };
+    //Funcion que termina la sesion 
     $scope.logout = function () {
         Data.get('logout').then(function (results) {
             Data.toast(results);

@@ -1,6 +1,5 @@
 var app = angular.module('App', ['ngRoute', 'ngAnimate', 'toaster']);
-
-//Rutas
+//Controlador manejador de rutas
 app.config(['$routeProvider',
   function ($routeProvider) {
         $routeProvider.
@@ -14,9 +13,14 @@ app.config(['$routeProvider',
                     templateUrl: 'views/home.html', //Usuario logeado 
                     controller: 'authCtrl'
                 })
+            .when('/myreservation',{
+                title: 'reservation',
+                templateUrl: 'views/myreservation.html', //Reservaciones del usuario
+                controller: 'reservationCtrl'
+            })
             .when('/reservation',{
                 title: 'reservation',
-                templateUrl: 'views/reservation.html', //Usuario logeado 
+                templateUrl: 'views/reservation.html', //Servicios que puede reservar el usuario
                 controller: 'reservationCtrl'
             })
             .otherwise({

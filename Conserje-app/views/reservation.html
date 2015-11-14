@@ -1,3 +1,40 @@
-<div>
-	Hola reservacion
+<header class="menu">
+	    <ul class="menu-bar">
+	        <li><a href="/Concurso2/Conserje-app/#/home"><i class="icon-news"></i></a></li>
+	        <li><a href="/Concurso2/Conserje-app/#/myreservation"><span class="icon-checkmark2"></span></a></li>
+	        <li><a href="/"><span class="icon-alarm"></span></a></li>
+	    </ul>
+	    <input type="checkbox" id="check-nav">
+	     <label class="menu-icono" for="check-nav">
+            <span class="icon-more_vert"></span>
+        </label>
+	    <nav class="opciones">
+	        <ul>
+	            <li><a href="/Concurso2/Conserje-app/#/reservation">Reservar</a></li>
+	            <li><a href="/">Perfil</a></li>
+	            <li><a href="/" ng-click="logout();">Salir</a></li>
+	        </ul>
+	    </nav>
+</header>
+
+<div id="possible-resevation" class="reservation">
+	<ul>
+		<div>
+			<h3>{{possibleReservation.name}}</h3>
+			<div>
+				<div>
+					<h4>Hora:</h4> <p>{{possibleReservation.timeI}} - {{possibleReservation.timeF}}</p>
+				</div>
+
+				<div>
+					<h4>Fecha:</h4> <p>{{possibleReservation.day}}</p>
+				</div>
+				
+				<div>
+					<h4>Lugar:</h4> <p>{{possibleReservation.place}}</p>
+				</div>
+			</div>	
+			<button>Reservar</button>
+		</div>
+	</ul>
 </div>

@@ -2,7 +2,7 @@
 $app->get('/session', function() {
     $db = new DbHandler();
     $session = $db->getSession();
-    $response["uid"] = $session['uid'];
+    $response["id"] = $session['id'];
     $response["email"] = $session['email'];
     $response["name"] = $session['name'];
     echoResponse(200, $session);
@@ -16,19 +16,19 @@ $app->post('/login', function() use ($app) {
     $db = new DbHandler();
     $password = $r->customer->password;
     $email = $r->customer->email;
-    $user = $db->getOneRecord("select uid,name,password,email,created from customers_auth where phone='$email' or email='$email'");
+    $user = $db->getOneRecord("select id,name,password,email,created from cliente where phone='$email' or email='$email'");
     if ($user != NULL) {
         if(passwordHash::check_password($user['password'],$password)){
         $response['status'] = "success";
         $response['message'] = 'Logged in successfully.';
         $response['name'] = $user['name'];
-        $response['uid'] = $user['uid'];
+        $response['id'] = $user['id'];
         $response['email'] = $user['email'];
         $response['createdAt'] = $user['created'];
         if (!isset($_SESSION)) {
             session_start();
         }
-        $_SESSION['uid'] = $user['uid'];
+        $_SESSION['id'] = $user['id'];
         $_SESSION['email'] = $email;
         $_SESSION['name'] = $user['name'];
         } else {
@@ -52,20 +52,20 @@ $app->post('/signUp', function() use ($app) {
     $email = $r->customer->email;
     $address = $r->customer->address;
     $password = $r->customer->password;
-    $isUserExists = $db->getOneRecord("select 1 from customers_auth where phone='$phone' or email='$email'");
+    $isUserExists = $db->getOneRecord("select 1 from cliente where phone='$phone' or email='$email'");
     if(!$isUserExists){
         $r->customer->password = passwordHash::hash($password);
-        $tabble_name = "customers_auth";
-        $column_names = array('phone', 'name', 'email', 'password', 'city', 'address');
+        $tabble_name = "cliente";
+        $column_names = array('phone', 'name', 'email', 'password','address');
         $result = $db->insertIntoTable($r->customer, $column_names, $tabble_name);
         if ($result != NULL) {
             $response["status"] = "success";
             $response["message"] = "User account created successfully";
-            $response["uid"] = $result;
+            $response["id"] = $result;
             if (!isset($_SESSION)) {
                 session_start();
             }
-            $_SESSION['uid'] = $response["uid"];
+            $_SESSION['id'] = $response["id"];
             $_SESSION['phone'] = $phone;
             $_SESSION['name'] = $name;
             $_SESSION['email'] = $email;

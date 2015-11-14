@@ -14,15 +14,15 @@ class dbConnect {
     function connect() {
         include_once '../config.php';
 
-        // Connecting to mysql database
+        // Conectar con la base de datos
         $this->conn = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
-        // Check for database connection error
+        // Error con la coneccion de la base de datos
         if (mysqli_connect_errno()) {
             echo "Failed to connect to MySQL: " . mysqli_connect_error();
         }
 
-        // returing connection resource
+        // Retorna la base de datos 
         return $this->conn;
     }
 
